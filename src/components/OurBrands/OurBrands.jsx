@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { collection, onSnapshot } from "firebase/firestore";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { db } from "../../Firebase";
+import { db } from "../../firebase";
 
 export default function OurBrands() {
   const [showAll, setShowAll] = useState(false);

@@ -4,10 +4,10 @@ import {
   addDoc,
   getDocs,
   deleteDoc,
-  doc,
   updateDoc,
+  doc,
 } from "firebase/firestore";
-import { db } from "../Firebase";
+import { db } from "../firebase";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiEdit, FiTrash2 } from "react-icons/fi";
 import toast from "react-hot-toast";

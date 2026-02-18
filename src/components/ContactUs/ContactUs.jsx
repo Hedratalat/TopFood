@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import toast from "react-hot-toast";
 import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
-import { db } from "../../Firebase";
+import { db } from "../../firebase";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";

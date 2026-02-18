@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { collection, getDocs, onSnapshot } from "firebase/firestore";
 import { motion } from "framer-motion";
-import { db } from "../../Firebase";
+import { db } from "../../firebase";
 import { useTranslation } from "react-i18next";
 
 export default function ProductsSection() {
