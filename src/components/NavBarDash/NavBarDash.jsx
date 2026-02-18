@@ -2,7 +2,7 @@ import { FiLogOut } from "react-icons/fi";
 import { Menu } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
-import { auth } from "../../firebase";
+import { auth } from "../../Firebase";
 
 export default function NavBarDash({ onMenuClick }) {
   const navigate = useNavigate();
