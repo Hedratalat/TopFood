@@ -10,6 +10,7 @@ const DashBoardLayout = lazy(
 );
 const ProductsDash = lazy(() => import("./pages/ProductsDash"));
 const OurBrandsDash = lazy(() => import("./pages/OurBrandsDash"));
+const MessageDash = lazy(() => import("./pages/MessageDash"));
 
 const LoadingSpinner = () => (
   <div className="flex items-center justify-center h-screen bg-accent-light">
@@ -51,12 +52,7 @@ function App() {
               <Route index element={<Navigate to="productDash" replace />} />
               <Route path="productDash" element={<ProductsDash />} />
               <Route path="our-brands" element={<OurBrandsDash />} />
-              {/* <Route path="expert-team" element={<ExpertTeamDash />} />
-            <Route path="services" element={<ServicesDash />} />
-            <Route path="gallery" element={<GalleryDash />} />
-            <Route path="book-appointment" element={<BookAppointmentDash />} />
-            <Route path="feedback" element={<FeedbackDash />} />
-            <Route path="message" element={<MessageDash />} />  */}
+              <Route path="messages" element={<MessageDash />} />
             </Route>
           </Routes>
         </Suspense>
