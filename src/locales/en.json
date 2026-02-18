@@ -1,0 +1,152 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "products": "Products",
+    "features": "Features",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Your Trusted Partner in HORECA Supply",
+    "description": "In the world of hotels, restaurants, and cafés, speed and quality define success. Top Food delivers premium kitchen supplies with fast and reliable service, so you can focus on growing your business with confidence.",
+    "ctaProducts": "Browse Products",
+    "ctaContact": "Contact Us",
+    "badge": "Premium Quality Products",
+    "stat1": "Diverse Products",
+    "stat2": "Happy Clients",
+    "stat3": "Years Experience"
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Your Trusted Partner in HORECA Supply Since 2020",
+    "intro": "In the HORECA industry (Hotels, Restaurants, Cafés), speed and quality are the keys to success. Top Food provides all your kitchen needs with the highest quality and fastest delivery, so you can focus on growing your business without worry.",
+    "description": "From frozen products and sauces to spices and cheese, everything you need is available in one place, with professional supply services that meet the needs of the HORECA sector efficiently and quickly.",
+    "visionTitle": "Our Vision",
+    "vision": "To be the leading company in kitchen supply for restaurants, cafés, and hotels, by providing high-quality and diverse products, focusing on innovative and fast solutions that meet the needs of our clients from all sectors.",
+    "partner": "We strive to be the trusted partner for every client, providing them with exceptional services and fast delivery at the best prices.",
+    "missionTitle": "Our Mission",
+    "mission": "At Top Food, we are committed to providing the best supply services to our clients in the restaurant, café, and hotel sectors since 2020.\nWe focus on supplying all kitchen needs, including raw materials and various products.\nOur goal is to expand our client base by targeting companies and broaden our services through direct sales to restaurants and supermarkets.\nWe offer substantial credit based on official documents and guarantees, with fast delivery of orders within specific hours or at the latest by the next day.\nWe ensure to provide various discounts and offers, and we can supply any product the client needs, even if it is outside the available price list, giving us a competitive advantage in the market."
+  },
+  "stats": {
+    "since": "Since",
+    "yearsExperience": "Years Experience",
+    "clients": "Happy Clients",
+    "products": "Products"
+  },
+  "products": {
+    "title": "Our Products",
+    "description": "Discover our range of high-quality products to meet your restaurant and cafe needs with the best standards",
+    "showMore": "Show More",
+    "showLess": "Show Less"
+  },
+
+  "whyUs": {
+    "title": "Why Choose Us",
+    "subtitle": "Your trusted partner for restaurant and cafe supplies with premium quality and outstanding service across Egypt",
+    "feature1": {
+      "title": "All Restaurant & Café Needs in One Place",
+      "desc": "We provide all restaurant and café supplies including food products, frozen items, cheese, sauces, meat, and more with premium quality."
+    },
+    "feature2": {
+      "title": "High Quality & Competitive Prices",
+      "desc": "We deliver top market quality with carefully structured pricing suitable for businesses of all sizes."
+    },
+    "feature3": {
+      "title": "Fastest Delivery in Egypt",
+      "desc": "We guarantee fast delivery with complete orders arriving on time without shortages."
+    },
+    "feature4": {
+      "title": "Strong Partnerships with Major Brands",
+      "desc": "Strategic partnerships with leading suppliers to ensure top quality and best pricing."
+    },
+    "feature5": {
+      "title": "Technical Support & Product Consultation",
+      "desc": "Our expert team helps you select the right products tailored to your business needs."
+    }
+  },
+  "values": {
+    "title": "Our Values",
+    "subtitle": "The principles we believe in and build our success upon",
+    "quality": "Quality First",
+    "transparency": "Transparency & Credibility",
+    "fastSupply": "Fast Supply",
+    "longRelations": "Long-Term Relationships"
+  },
+  "brands": {
+    "title": "Our Brands",
+    "description": "We proudly supply top-quality trusted brands to meet the needs of restaurants, hotels, and cafes",
+    "showMore": "Show More",
+    "showLess": "Show Less"
+  },
+  "contact": {
+    "title": {
+      "part1": "Contact Us"
+    },
+    "subtitle": "Connect with us anytime, and we will be here to receive your message and respond with care",
+    "form": {
+      "title": "Send Us a Message",
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "Your Full Name",
+      "email": "Email Address",
+      "emailPlaceholder": "example@email.com",
+      "placeType": "Type of Place",
+      "placeTypePlaceholder": "Select your place",
+      "restaurant": "Restaurant",
+      "hotel": "Hotel",
+      "cafe": "Cafe",
+      "phone": "Phone Number",
+      "phonePlaceholder": "01XXXXXXXXX",
+      "message": "Message",
+      "messagePlaceholder": "Write your message here...",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully",
+      "error": "Failed to send message",
+      "limitError": "You have already sent 2 messages"
+    },
+    "info": {
+      "phone": {
+        "label": "Phone",
+        "value1": "01020264100",
+        "value2": "0226322043"
+      },
+      "email": {
+        "label": "Email",
+        "value": "Topfood4trading@gmail.com"
+      },
+      "address": {
+        "label": "Address",
+        "value": "53 Abdel Aziz Fahmy Street, Heliopolis - Cairo"
+      },
+      "hours": {
+        "label": "Working Hours",
+        "value": "Sat – Fri: 6 - 10 PM",
+        "extra": "Sunday: Closed"
+      }
+    },
+    "social": {
+      "title": "Follow Us On"
+    }
+  },
+  "validation": {
+    "fullName": {
+      "min": "Full name must be at least 3 characters.",
+      "max": "Full name must be less than 40 characters.",
+      "regex": "Full name can only contain letters and spaces."
+    },
+    "email": {
+      "invalid": "Invalid email format.",
+      "max": "Email is too long."
+    },
+    "phone": {
+      "regex": "Phone number must be exactly 11 digits."
+    },
+    "message": {
+      "min": "Message must be at least 10 characters.",
+      "max": "Message must be less than 500 characters."
+    },
+    "placeType": {
+      "invalid": "Please select a valid place type."
+    }
+  }
+}
