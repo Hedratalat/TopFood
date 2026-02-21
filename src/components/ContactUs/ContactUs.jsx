@@ -121,7 +121,7 @@ export default function Contact() {
     <section
       id="contact"
       dir={isArabic ? "rtl" : "ltr"}
-      className="relative py-24 bg-accent-light font-hacen overflow-hidden scroll-mt-20"
+      className="relative py-24 bg-[#fafcfb] font-hacen overflow-hidden "
     >
       {/* Decorative blobs */}
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">

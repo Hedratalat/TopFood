@@ -29,7 +29,7 @@ export default function ProductsSection() {
   return (
     <section
       id="products"
-      className="py-24 bg-accent-light font-hacen overflow-hidden scroll-mt-20"
+      className="py-24 bg-accent-light font-hacen overflow-hidden "
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}

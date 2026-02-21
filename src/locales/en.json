@@ -8,7 +8,7 @@
   },
   "hero": {
     "title": "Your Trusted Partner in HORECA Supply",
-    "description": "In the world of hotels, restaurants, and cafés, speed and quality define success. Top Food delivers premium kitchen supplies with fast and reliable service, so you can focus on growing your business with confidence.",
+    "description": "In the world of hotels, restaurants, and cafes, speed and quality define success. Top Food delivers premium kitchen supplies with fast and reliable service, so you can focus on growing your business with confidence",
     "ctaProducts": "Browse Products",
     "ctaContact": "Contact Us",
     "badge": "Premium Quality Products",
@@ -19,10 +19,10 @@
   "about": {
     "title": "About Us",
     "subtitle": "Your Trusted Partner in HORECA Supply Since 2020",
-    "intro": "In the HORECA industry (Hotels, Restaurants, Cafés), speed and quality are the keys to success. Top Food provides all your kitchen needs with the highest quality and fastest delivery, so you can focus on growing your business without worry.",
+    "intro": "In the HORECA industry (Hotels, Restaurants, Cafes), speed and quality are the keys to success. Top Food provides all your kitchen needs with the highest quality and fastest delivery, so you can focus on growing your business without worry.",
     "description": "From frozen products and sauces to spices and cheese, everything you need is available in one place, with professional supply services that meet the needs of the HORECA sector efficiently and quickly.",
     "visionTitle": "Our Vision",
-    "vision": "To be the leading company in kitchen supply for restaurants, cafés, and hotels, by providing high-quality and diverse products, focusing on innovative and fast solutions that meet the needs of our clients from all sectors.",
+    "vision": "To be the leading company in kitchen supply for restaurants, cafes, and hotels, by providing high-quality and diverse products, focusing on innovative and fast solutions that meet the needs of our clients from all sectors.",
     "partner": "We strive to be the trusted partner for every client, providing them with exceptional services and fast delivery at the best prices.",
     "missionTitle": "Our Mission",
     "mission": "At Top Food, we are committed to providing the best supply services to our clients in the restaurant, café, and hotel sectors since 2020.\nWe focus on supplying all kitchen needs, including raw materials and various products.\nOur goal is to expand our client base by targeting companies and broaden our services through direct sales to restaurants and supermarkets.\nWe offer substantial credit based on official documents and guarantees, with fast delivery of orders within specific hours or at the latest by the next day.\nWe ensure to provide various discounts and offers, and we can supply any product the client needs, even if it is outside the available price list, giving us a competitive advantage in the market."
@@ -148,5 +148,17 @@
     "placeType": {
       "invalid": "Please select a valid place type."
     }
+  },
+  "clients": {
+    "title": "Our Clients",
+    "description": "We are proud to be trusted by restaurants, hotels, and cafes that rely on us for high-quality products to meet their daily needs",
+    "showMore": "Show More",
+    "showLess": "Show Less"
+  },
+
+  "footer": {
+    "brand": "Top Food",
+    "quickLinks": "Quick Links",
+    "copyright": "© 2026 Top Food. All rights reserved."
   }
 }

@@ -12,7 +12,11 @@ function LanguageSwitcher() {
       onClick={() => i18n.changeLanguage(otherLang)}
       className="w-11 h-11 rounded-full flex items-center justify-center border-2 bg-accent-dark text-white border-accent-dark font-hacen font-bold text-lg"
     >
-      {otherLang === "en" ? "EN" : "ع"}
+      {otherLang === "en" ? (
+        "EN"
+      ) : (
+        <span className="text-2xl leading-none">ع</span>
+      )}
     </button>
   );
 }
@@ -31,7 +35,21 @@ export default function Navbar() {
 
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
-    section?.scrollIntoView({ behavior: "smooth" });
+
+    // نجيب ارتفاع الـ Navbar
+    const navbar = document.querySelector("nav");
+    const navbarHeight = navbar?.offsetHeight || 80;
+
+    if (section) {
+      const offsetTop =
+        section.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+    }
+
     setMenuOpen(false);
   };
 

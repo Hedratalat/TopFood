@@ -5,12 +5,12 @@ export default function SideBarDash({ isOpen, setIsOpen }) {
   const navItems = [
     { to: "productDash", label: "Products Dashboard" },
     { to: "our-brands", label: "Our Brands" },
+    { to: "our-clients", label: "Our Clients" },
     { to: "messages", label: "Message" },
   ];
 
   return (
     <>
-      {/* الخلفية الداكنة عند فتح القائمة على الموبايل */}
       {isOpen && (
         <div
           onClick={() => setIsOpen(false)}
@@ -25,7 +25,6 @@ export default function SideBarDash({ isOpen, setIsOpen }) {
           ${isOpen ? "translate-x-0" : "-translate-x-full"} 
           lg:translate-x-0`}
       >
-        {/* زر الإغلاق في الموبايل */}
         <button
           onClick={() => setIsOpen(false)}
           className="lg:hidden absolute top-4 right-4 text-white"

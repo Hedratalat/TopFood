@@ -11,7 +11,9 @@ const ProductsSection = lazy(
 const WhyChooseUs = lazy(() => import("../components/WhyChooseUs/WhyChooseUs"));
 const OurBrands = lazy(() => import("../components/OurBrands/OurBrands"));
 const Values = lazy(() => import("../components/Values/Values"));
+const OurClients = lazy(() => import("../components/OurClients/OurClients"));
 const ContactUs = lazy(() => import("../components/ContactUs/ContactUs"));
+const Footer = lazy(() => import("../components/Footer/Footer"));
 const ButtonScroll = lazy(
   () => import("../components/ButtonScroll/ButtonScroll"),
 );
@@ -27,7 +29,9 @@ export default function Home() {
         <WhyChooseUs />
         <OurBrands />
         <Values />
+        <OurClients />
         <ContactUs />
+        <Footer />
         <ButtonScroll />
       </Suspense>
     </>

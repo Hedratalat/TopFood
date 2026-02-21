@@ -27,7 +27,7 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="py-16 bg-[#fafcfb]  font-hacen overflow-hidden scroll-mt-20"
+      className="py-16 bg-[#fafcfb]  font-hacen overflow-hidden "
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}

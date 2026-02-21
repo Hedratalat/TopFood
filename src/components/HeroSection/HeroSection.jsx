@@ -6,11 +6,30 @@ export default function Hero() {
   const { t } = useTranslation();
 
   const scrollToProducts = () => {
-    document.getElementById("products")?.scrollIntoView({ behavior: "smooth" });
+    const element = document.getElementById("products");
+    if (element) {
+      const yOffset = -40;
+      const y =
+        element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  };
+
+  const scrollToContact = () => {
+    const element = document.getElementById("contact");
+    if (element) {
+      const yOffset = -40;
+      const y =
+        element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
   };
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center overflow-hidden"
+    >
       {/* Background with Parallax Effect */}
       <motion.div
         initial={{ scale: 1.1 }}
@@ -103,7 +122,10 @@ export default function Hero() {
               <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-white/20 to-primary/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
             </button>
 
-            <button className="group px-8 py-4 border-2 border-white/80 text-white rounded-full font-semibold transition-all duration-300 hover:bg-white hover:text-black hover:border-white hover:shadow-xl hover:-translate-y-1 backdrop-blur-sm">
+            <button
+              onClick={scrollToContact}
+              className="group px-8 py-4 border-2 border-white/80 text-white rounded-full font-semibold transition-all duration-300 hover:bg-white hover:text-black hover:border-white hover:shadow-xl hover:-translate-y-1 backdrop-blur-sm"
+            >
               <span className="flex items-center gap-2">
                 {t("hero.ctaContact")}
                 <svg

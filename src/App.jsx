@@ -11,6 +11,7 @@ const DashBoardLayout = lazy(
 const ProductsDash = lazy(() => import("./pages/ProductsDash"));
 const OurBrandsDash = lazy(() => import("./pages/OurBrandsDash"));
 const MessageDash = lazy(() => import("./pages/MessageDash"));
+const OurClientsDash = lazy(() => import("./pages/OurClientsDash"));
 
 const LoadingSpinner = () => (
   <div className="flex items-center justify-center h-screen bg-accent-light">
@@ -52,6 +53,7 @@ function App() {
               <Route index element={<Navigate to="productDash" replace />} />
               <Route path="productDash" element={<ProductsDash />} />
               <Route path="our-brands" element={<OurBrandsDash />} />
+              <Route path="our-clients" element={<OurClientsDash />} />
               <Route path="messages" element={<MessageDash />} />
             </Route>
           </Routes>
