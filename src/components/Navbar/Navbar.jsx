@@ -15,7 +15,9 @@ function LanguageSwitcher() {
       {otherLang === "en" ? (
         "EN"
       ) : (
-        <span className="text-2xl leading-none text-center">ع</span>
+        <span className="text-2xl relative" style={{ top: "-2px" }}>
+          ع
+        </span>
       )}
     </button>
   );
