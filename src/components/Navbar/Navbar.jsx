@@ -81,7 +81,7 @@ export default function Navbar() {
             <img
               src="/Logo1.png"
               alt="Top Food Logo"
-              className="h-24 lg:h-32 w-auto transition-transform duration-300 group-hover:scale-110"
+              className="h-28 lg:h-32 w-auto transition-transform duration-300 group-hover:scale-110"
             />
           </div>
 
