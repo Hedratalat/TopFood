@@ -38,7 +38,7 @@ const contactSchema = z.object({
   phone: z
     .string()
     .trim()
-    .regex(/^[0-9]{11}$/, "validation.phone.regex"),
+    .regex(/^(\+2)?[0-9]{11}$/, "validation.phone.regex"),
   message: z
     .string()
     .trim()
@@ -80,7 +80,7 @@ export default function Contact() {
       toast.success(t("contact.form.success"));
       reset();
     } catch (error) {
-      console.error("Error sending message:", error);
+      console.error("Error sending message:");
       toast.error(t("contact.form.error"));
     }
   };

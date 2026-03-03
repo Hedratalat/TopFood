@@ -71,7 +71,7 @@ export default function ProductsDash() {
       setOrder("");
       fetchProducts();
     } catch (err) {
-      console.error(err);
+      console.error("err");
       toast.error("Something went wrong");
     }
     setLoading(false);
@@ -86,7 +86,7 @@ export default function ProductsDash() {
       fetchProducts();
       toast.success("Product deleted successfully");
     } catch (err) {
-      console.error(err);
+      console.error("err");
       toast.error("Failed to delete product");
     }
   };

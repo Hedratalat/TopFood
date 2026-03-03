@@ -9,8 +9,8 @@ export default function NavBarDash({ onMenuClick }) {
 
   const handleLogout = async () => {
     try {
-      await signOut(auth); // تسجيل الخروج من Firebase
-      navigate("/"); // تحويل للصفحة الرئيسية
+      await signOut(auth);
+      navigate("/");
     } catch (error) {
       console.error("Logout error:", error);
     }
@@ -19,7 +19,6 @@ export default function NavBarDash({ onMenuClick }) {
   return (
     <nav className="bg-black text-white z-40 shadow-md">
       <div className="flex items-center justify-between px-4 sm:px-6 h-16 sm:h-20">
-        {/* زر القائمة (يظهر فقط في الشاشات الصغيرة) */}
         <button
           onClick={onMenuClick}
           className="lg:hidden bg-white p-2 rounded-md  text-black transition"

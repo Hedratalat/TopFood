@@ -26,10 +26,10 @@ export default function Home() {
         <HeroSection />
         <AboutSection />
         <ProductsSection />
-        <WhyChooseUs />
+        <OurClients />
         <OurBrands />
         <Values />
-        <OurClients />
+        <WhyChooseUs />
         <ContactUs />
         <Footer />
         <ButtonScroll />

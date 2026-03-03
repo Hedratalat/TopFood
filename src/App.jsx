@@ -1,10 +1,11 @@
-import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import "./index.css";
 import { Toaster } from "react-hot-toast";
 import { lazy, Suspense } from "react";
 
 const Home = lazy(() => import("./pages/Home"));
+const AdminLogin = lazy(() => import("./pages/AdminLogin"));
 const DashBoardLayout = lazy(
   () => import("./components/DashboardLayout/DashboardLayout"),
 );
@@ -12,6 +13,9 @@ const ProductsDash = lazy(() => import("./pages/ProductsDash"));
 const OurBrandsDash = lazy(() => import("./pages/OurBrandsDash"));
 const MessageDash = lazy(() => import("./pages/MessageDash"));
 const OurClientsDash = lazy(() => import("./pages/OurClientsDash"));
+const ProtectedRoute = lazy(
+  () => import("./components/ProtectedRoute/ProtectedRoute"),
+);
 
 const LoadingSpinner = () => (
   <div className="flex items-center justify-center h-screen bg-accent-light">
@@ -36,18 +40,18 @@ const LoadingSpinner = () => (
 function App() {
   return (
     <>
-      <HashRouter>
+      <BrowserRouter>
         <Suspense fallback={<LoadingSpinner />}>
           <Routes>
             <Route path="/" element={<Home />} />
-            {/* <Route path="admin-login11" element={<AdminLogin />} /> */}
+            <Route path="adminlogin-topfood" element={<AdminLogin />} />
 
             <Route
               path="/dashboard"
               element={
-                // <ProtectedRoute>
-                <DashBoardLayout />
-                // </ProtectedRoute>
+                <ProtectedRoute>
+                  <DashBoardLayout />
+                </ProtectedRoute>
               }
             >
               <Route index element={<Navigate to="productDash" replace />} />
@@ -58,7 +62,7 @@ function App() {
             </Route>
           </Routes>
         </Suspense>
-      </HashRouter>
+      </BrowserRouter>
       <Toaster position="top-center" reverseOrder={false} />
     </>
   );

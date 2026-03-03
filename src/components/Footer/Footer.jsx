@@ -183,7 +183,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* الخط السفلي */}
       <div className="border-t border-white/40 text-center py-3 mt-4" dir={dir}>
         <p className="text-white text-sm md:text-base">
           {t("footer.copyright")}

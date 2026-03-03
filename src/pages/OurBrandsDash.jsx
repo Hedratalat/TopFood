@@ -65,7 +65,7 @@ export default function OurBrandsDash() {
       setOrder("");
       fetchBrands();
     } catch (err) {
-      console.error(err);
+      console.error("err");
       toast.error("Something went wrong");
     }
 

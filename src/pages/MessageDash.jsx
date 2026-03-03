@@ -1,32 +1,57 @@
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { collection, getDocs, orderBy, query } from "firebase/firestore";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  collection,
+  onSnapshot,
+  orderBy,
+  query,
+  doc,
+  deleteDoc,
+} from "firebase/firestore";
 import { db } from "../firebase";
 
 export default function MessageDash() {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [deletingId, setDeletingId] = useState(null);
+  const [deleteId, setDeleteId] = useState(null);
 
   useEffect(() => {
-    const fetchMessages = async () => {
-      try {
-        const messagesRef = collection(db, "Messages");
-        const q = query(messagesRef, orderBy("createdAt", "desc"));
-        const snapshot = await getDocs(q);
+    const messagesRef = collection(db, "Messages");
+    const q = query(messagesRef, orderBy("createdAt", "desc"));
+
+    const unsubscribe = onSnapshot(
+      q,
+      (snapshot) => {
         const data = snapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));
         setMessages(data);
-      } catch (err) {
-        console.error("Error fetching messages:", err);
-      } finally {
         setLoading(false);
-      }
-    };
+      },
+      (err) => {
+        console.error("Error fetching messages:", err);
+        setLoading(false);
+      },
+    );
 
-    fetchMessages();
+    return () => unsubscribe();
   }, []);
+
+  const handleDelete = async () => {
+    if (!deleteId) return;
+
+    setDeletingId(deleteId);
+    try {
+      await deleteDoc(doc(db, "Messages", deleteId));
+      setDeleteId(null);
+    } catch (err) {
+      console.error("Error deleting message:", err);
+    } finally {
+      setDeletingId(null);
+    }
+  };
 
   return (
     <div className="p-6 font-hacen">
@@ -89,27 +114,67 @@ export default function MessageDash() {
               transition={{ duration: 0.4, delay: i * 0.08 }}
               className="group relative bg-white rounded-2xl border border-primary-light/20 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col"
             >
-              {/* Top accent bar */}
               <div className="h-1 w-full bg-gradient-to-r from-primary-dark via-primary-light to-transparent" />
 
               <div className="p-5 flex flex-col gap-3 flex-1">
-                {/* Avatar + Name */}
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-primary-dark/10 flex items-center justify-center text-primary-dark font-bold text-base shrink-0">
                     {msg.fullName?.charAt(0)?.toUpperCase() ?? "?"}
                   </div>
-                  <div>
+                  <div className="flex-1">
                     <p className="font-bold text-primary-dark leading-tight">
                       {msg.fullName}
                     </p>
                     <p className="text-xs text-accent-dark/60">{msg.email}</p>
                   </div>
+
+                  {/* 🗑️ Delete Button */}
+                  <button
+                    onClick={() => setDeleteId(msg.id)}
+                    disabled={deletingId === msg.id}
+                    className="ml-auto p-1.5 rounded-lg text-red-400 hover:bg-red-50 hover:text-red-600 transition-colors duration-200 disabled:opacity-50"
+                    title="Delete message"
+                  >
+                    {deletingId === msg.id ? (
+                      <svg
+                        className="animate-spin w-4 h-4"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        />
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8v8z"
+                        />
+                      </svg>
+                    ) : (
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
+                        />
+                      </svg>
+                    )}
+                  </button>
                 </div>
 
-                {/* Divider */}
                 <div className="border-t border-primary-light/10" />
 
-                {/* Meta info */}
                 <div className="grid grid-cols-2 gap-2">
                   <div className="flex items-center gap-1.5 text-xs text-accent-dark">
                     <svg
@@ -170,6 +235,46 @@ export default function MessageDash() {
           ))}
         </div>
       )}
+
+      {/*  Delete Popup */}
+      <AnimatePresence>
+        {deleteId && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+          >
+            <motion.div
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.8 }}
+              className="bg-white p-6 rounded-xl shadow-lg w-80 text-center"
+            >
+              <h3 className="font-bold text-primary-dark mb-4">
+                Are you sure?
+              </h3>
+              <p className="text-accent-dark mb-6">
+                Do you want to delete this message?
+              </p>
+              <div className="flex justify-center gap-4">
+                <button
+                  onClick={handleDelete}
+                  className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-500 transition"
+                >
+                  Delete
+                </button>
+                <button
+                  onClick={() => setDeleteId(null)}
+                  className="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition"
+                >
+                  Cancel
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

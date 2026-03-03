@@ -11,7 +11,7 @@ export default function DashBoardLayout() {
       {/* Sidebar */}
       <SideBarDash isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
 
-      {/* المحتوى الرئيسي */}
+      {/*  main content */}
       <div className="flex-1 flex flex-col">
         <NavBarDash onMenuClick={() => setIsSidebarOpen(true)} />
         <main className="flex-1 p-4 sm:p-6 overflow-y-auto">

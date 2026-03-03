@@ -69,7 +69,7 @@ export default function OurClientsDash() {
       setOrder("");
       fetchClients();
     } catch (err) {
-      console.error(err);
+      console.error("err");
       toast.error("Something went wrong");
     }
 
@@ -86,7 +86,7 @@ export default function OurClientsDash() {
       fetchClients();
       toast.success("Client deleted successfully");
     } catch (err) {
-      console.error(err);
+      console.error("err");
       toast.error("Failed to delete client");
     }
   };

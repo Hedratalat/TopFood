@@ -88,7 +88,7 @@ export default function OurBrands() {
                   <img
                     src={brand.image}
                     alt="brand"
-                    className="h-16 object-contain"
+                    className="h-28 object-contain"
                   />
                 )}
               </div>

@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
 
 export default function LanguageSwitcher() {
-  // ✅ جوه الكومبوننت
   const { i18n } = useTranslation();
   const isArabic = i18n.language === "ar";
 
