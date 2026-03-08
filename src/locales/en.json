@@ -3,7 +3,7 @@
     "home": "Home",
     "about": "About",
     "products": "Products",
-    "features": "Features",
+    "offers": "Offers",
     "contact": "Contact"
   },
   "hero": {
@@ -36,8 +36,24 @@
   "products": {
     "title": "Our Products",
     "description": "Discover our range of high-quality products to meet your restaurant and cafe needs with the best standards",
+    "titleTwo": "Discover Our Products",
+    "descriptionTwo": "We bring you the finest food products with unmatched quality to elevate your restaurant and cafe",
     "showMore": "Show More",
-    "showLess": "Show Less"
+    "showLess": "Show Less",
+    "currency": "EGP",
+    "searchPlaceholder": "Search for a product...",
+    "results": "products",
+    "noResults": "No Products Found",
+    "tryAgain": "Try changing the search or filter",
+    "allCategories": "All",
+    "addedFav": "Added to favorites",
+    "removedFav": "Removed from favorites",
+    "browseAll": "Browse All Products",
+    "favorites": "Favorites",
+    "favoritesDesc": "Products you have added to your favorites",
+    "noFavorites": "No Favorites Yet",
+    "noFavoritesDesc": "Add products to your favorites from the products page",
+    "browseFav": "Browse Products"
   },
 
   "whyUs": {
@@ -71,6 +87,12 @@
     "transparency": "Transparency & Credibility",
     "fastSupply": "Fast Supply",
     "longRelations": "Long-Term Relationships"
+  },
+  "offers": {
+    "title": "Our Special Offers",
+    "description": "Discover the latest deals and discounts on our products for your restaurant and cafe",
+    "noOffers": "No Offers Available",
+    "noOffersDesc": "Stay tuned for our latest deals and discounts"
   },
   "brands": {
     "title": "Our Brands",
@@ -107,8 +129,7 @@
     "info": {
       "phone": {
         "label": "Phone",
-        "value1": "01020264100",
-        "value2": "0226322043"
+        "value1": "01020264100"
       },
       "email": {
         "label": "Email",
@@ -116,12 +137,12 @@
       },
       "address": {
         "label": "Address",
-        "value": "53 Abdel Aziz Fahmy Street, Heliopolis - Cairo"
+        "value": "69 Abdel Aziz Fahmy Street, Al-Nozha District, New Cairo - Cairo"
       },
       "hours": {
         "label": "Working Hours",
-        "value": "Sat – Fri: 6 - 10 PM",
-        "extra": "Sunday: Closed"
+        "value": "Sat – Thu: 9 AM - 5 PM",
+        "extra": "Friday: Closed"
       }
     },
     "social": {

@@ -46,7 +46,7 @@ export default function OurBrands() {
   const visibleBrands = showAll ? brands : brands.slice(0, itemsPerView);
 
   return (
-    <section className="py-24  bg-accent-light  font-hacen overflow-hidden">
+    <section className="py-24  bg-[#fafcfb]  font-hacen overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
         <motion.div

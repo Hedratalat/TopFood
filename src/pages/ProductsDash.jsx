@@ -18,6 +18,7 @@ export default function ProductsDash() {
   const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [order, setOrder] = useState("");
+  const [price, setPrice] = useState("");
   const [editingId, setEditingId] = useState(null);
   const [deleteId, setDeleteId] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -52,6 +53,7 @@ export default function ProductsDash() {
           category,
           name,
           order: order !== "" ? Number(order) : 999,
+          price: price !== "" ? Number(price) : null,
           ...(imageUrl && { image: imageUrl }),
         });
         setEditingId(null);
@@ -62,6 +64,7 @@ export default function ProductsDash() {
           name,
           image: imageUrl,
           order: order !== "" ? Number(order) : 999,
+          price: price !== "" ? Number(price) : null,
         });
         toast.success("Product added successfully");
       }
@@ -69,6 +72,7 @@ export default function ProductsDash() {
       setName("");
       setImageUrl("");
       setOrder("");
+      setPrice("");
       fetchProducts();
     } catch (err) {
       console.error("err");
@@ -96,6 +100,7 @@ export default function ProductsDash() {
     setName(product.name);
     setImageUrl(product.image || "");
     setOrder(product.order ?? "");
+    setPrice(product.price ?? "");
     setEditingId(product.id);
   };
 
@@ -140,6 +145,15 @@ export default function ProductsDash() {
             min="1"
             className="border border-gray-300 rounded-md px-3 py-2 w-full"
           />
+          <input
+            type="number"
+            placeholder="Price"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            min="0"
+            step="0.01"
+            className="border border-gray-300 rounded-md px-3 py-2 w-full"
+          />
         </div>
         <button
           type="submit"
@@ -164,15 +178,15 @@ export default function ProductsDash() {
                 className="w-full h-40 object-cover rounded-lg mb-3"
               />
             )}
-
             {/* Order Badge */}
             <span className="text-xs text-white bg-primary px-3 py-1 rounded-full mb-2 self-start">
               Order: {prod.order ?? "—"}
             </span>
-
             <h3 className="font-bold text-primary-dark text-lg">{prod.name}</h3>
             <p className="text-accent-dark">{prod.category}</p>
-
+            {prod.price != null && (
+              <p className="text-primary font-bold mt-1">{prod.price} EGP</p>
+            )}
             <div className="flex gap-2 mt-3 flex-wrap justify-center">
               <button
                 onClick={() => startEdit(prod)}

@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { ChevronDown } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function Hero() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const scrollToProducts = () => {
     const element = document.getElementById("products");
@@ -38,7 +40,7 @@ export default function Hero() {
         className="absolute inset-0"
       >
         <img
-          src="/hero.jpg"
+          src="/cover1.jfif"
           alt="Top Food"
           className="w-full h-full object-cover object-center"
         />
@@ -123,13 +125,13 @@ export default function Hero() {
             </button>
 
             <button
-              onClick={scrollToContact}
+              onClick={() => navigate("/contact")}
               className="group px-8 py-4 border-2 border-white/80 text-white rounded-full font-semibold transition-all duration-300 hover:bg-white hover:text-black hover:border-white hover:shadow-xl hover:-translate-y-1 backdrop-blur-sm"
             >
               <span className="flex items-center gap-2">
                 {t("hero.ctaContact")}
                 <svg
-                  className="w-5 h-5 group-hover:rotate-45 transition-transform"
+                  className="w-5 h-5 group-hover:translate-x-1 transition-transform"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -138,7 +140,7 @@ export default function Hero() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
                   />
                 </svg>
               </span>

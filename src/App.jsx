@@ -5,6 +5,11 @@ import { Toaster } from "react-hot-toast";
 import { lazy, Suspense } from "react";
 
 const Home = lazy(() => import("./pages/Home"));
+const About = lazy(() => import("./pages/About"));
+const Products = lazy(() => import("./pages/Products"));
+const Offers = lazy(() => import("./pages/Offers"));
+const Favorites = lazy(() => import("./pages/Favorites"));
+const ContactUs = lazy(() => import("./pages/ContactUs"));
 const AdminLogin = lazy(() => import("./pages/AdminLogin"));
 const DashBoardLayout = lazy(
   () => import("./components/DashboardLayout/DashboardLayout"),
@@ -12,6 +17,7 @@ const DashBoardLayout = lazy(
 const ProductsDash = lazy(() => import("./pages/ProductsDash"));
 const OurBrandsDash = lazy(() => import("./pages/OurBrandsDash"));
 const MessageDash = lazy(() => import("./pages/MessageDash"));
+const OffersDash = lazy(() => import("./pages/OffersDash"));
 const OurClientsDash = lazy(() => import("./pages/OurClientsDash"));
 const ProtectedRoute = lazy(
   () => import("./components/ProtectedRoute/ProtectedRoute"),
@@ -44,6 +50,12 @@ function App() {
         <Suspense fallback={<LoadingSpinner />}>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<ContactUs />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/offers" element={<Offers />} />
+            <Route path="/favorites" element={<Favorites />} />
+
             <Route path="adminlogin-topfood" element={<AdminLogin />} />
 
             <Route
@@ -57,6 +69,7 @@ function App() {
               <Route index element={<Navigate to="productDash" replace />} />
               <Route path="productDash" element={<ProductsDash />} />
               <Route path="our-brands" element={<OurBrandsDash />} />
+              <Route path="offersDash" element={<OffersDash />} />
               <Route path="our-clients" element={<OurClientsDash />} />
               <Route path="messages" element={<MessageDash />} />
             </Route>

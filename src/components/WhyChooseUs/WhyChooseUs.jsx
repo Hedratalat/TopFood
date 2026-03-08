@@ -37,7 +37,7 @@ export default function WhyChooseUs() {
   return (
     <section
       id="features"
-      className="py-24 bg-accent-light font-hacen overflow-hidden "
+      className="py-24 bg-[#fafcfb]  font-hacen overflow-hidden "
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
@@ -65,7 +65,21 @@ export default function WhyChooseUs() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 items-start">
+          {/* Image */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            viewport={{ once: true, amount: 0.3 }}
+            className="relative order-first lg:order-last"
+          >
+            <img
+              src="/cover3.jfif"
+              alt="Restaurant Supply"
+              className="rounded-3xl shadow-2xl w-full object-cover border-4 border-primary-light  sm:h-80 lg:h-full"
+            />
+          </motion.div>
           {/* Features */}
           <div className="space-y-5">
             {features.map((item, index) => (
@@ -99,21 +113,6 @@ export default function WhyChooseUs() {
               </motion.div>
             ))}
           </div>
-
-          {/* Image */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            viewport={{ once: true, amount: 0.3 }}
-            className="relative"
-          >
-            <img
-              src="/public/Logo1.png"
-              alt="Restaurant Supply"
-              className="rounded-3xl shadow-2xl w-full object-cover border-4 border-primary-light"
-            />
-          </motion.div>
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
 import { FaBars, FaTimes, FaHeart } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Link, useNavigate } from "react-router-dom";
 
 function LanguageSwitcher({ size = "md" }) {
   const { i18n } = useTranslation();
@@ -45,27 +46,63 @@ function LanguageSwitcher({ size = "md" }) {
   );
 }
 
+function FavButton({ size = 30, favCount, onClick }) {
+  return (
+    <button
+      onClick={onClick}
+      className="relative text-accent-dark hover:text-red-600 transition-all duration-300"
+      aria-label="Favorites"
+    >
+      <FaHeart size={size} />
+      {favCount > 0 && (
+        <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-md">
+          {favCount > 99 ? "99+" : favCount}
+        </span>
+      )}
+    </button>
+  );
+}
+
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { t } = useTranslation();
+  const navigate = useNavigate();
+
+  const [favCount, setFavCount] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem("favorites") || "[]").length;
+    } catch {
+      return 0;
+    }
+  });
+
+  useEffect(() => {
+    const updateCount = () => {
+      try {
+        setFavCount(
+          JSON.parse(localStorage.getItem("favorites") || "[]").length,
+        );
+      } catch {
+        setFavCount(0);
+      }
+    };
+    window.addEventListener("favoritesUpdated", updateCount);
+    return () => window.removeEventListener("favoritesUpdated", updateCount);
+  }, []);
 
   const navLinks = [
-    { name: t("nav.home"), id: "home" },
-    { name: t("nav.about"), id: "about" },
-    { name: t("nav.products"), id: "products" },
-    { name: t("nav.features"), id: "features" },
-    { name: t("nav.contact"), id: "contact" },
+    { name: t("nav.home"), path: "/" },
+    { name: t("nav.about"), path: "/about" },
+    { name: t("nav.products"), path: "/products" },
+    { name: t("nav.offers"), path: "/offers" },
+    { name: t("nav.contact"), path: "/contact" },
   ];
 
-  const scrollToSection = (id) => {
-    const section = document.getElementById(id);
-    const navbar = document.querySelector("nav");
-    const navbarHeight = navbar?.offsetHeight || 80;
-    if (section) {
-      const offsetTop =
-        section.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
-      window.scrollTo({ top: offsetTop, behavior: "smooth" });
-    }
+  const handleNavigation = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
     setMenuOpen(false);
   };
 
@@ -74,49 +111,56 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-gray-300">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div
+          <Link
+            to="/"
+            onClick={handleNavigation}
             className="group cursor-pointer flex items-center"
-            onClick={() => scrollToSection("home")}
           >
             <img
               src="/Logo1.png"
               alt="Top Food Logo"
               className="h-28 lg:h-32 w-auto transition-transform duration-300 group-hover:scale-110"
             />
-          </div>
+          </Link>
 
           {/* Desktop Links */}
           <ul className="hidden lg:flex items-center gap-7 xl:gap-8 font-hacen font-bold text-accent-dark text-lg xl:text-xl absolute left-1/2 -translate-x-1/2">
             {navLinks.map((item) => (
-              <li key={item.id}>
-                <button
-                  onClick={() => scrollToSection(item.id)}
+              <li key={item.path}>
+                <Link
+                  to={item.path}
+                  onClick={handleNavigation}
                   className="relative text-accent-dark hover:text-primary transition-colors"
                 >
                   {item.name}
-                </button>
+                </Link>
               </li>
             ))}
           </ul>
 
+          {/* Desktop Right Side */}
           <div className="hidden lg:flex items-center gap-3">
-            <button
-              className="text-primary-dark hover:text-red-600 hover:scale-105 transition-all duration-300"
-              aria-label="Favorites"
-            >
-              <FaHeart size={30} />
-            </button>
+            <FavButton
+              size={30}
+              favCount={favCount}
+              onClick={() => {
+                navigate("/favorites");
+                handleNavigation();
+              }}
+            />
             <LanguageSwitcher size="lg" />
           </div>
 
           {/* Mobile */}
           <div className="lg:hidden flex items-center gap-2">
-            <button
-              className="text-primary-dark hover:text-red-600 hover:scale-105 transition-all duration-300"
-              aria-label="Favorites"
-            >
-              <FaHeart size={26} />
-            </button>
+            <FavButton
+              size={26}
+              favCount={favCount}
+              onClick={() => {
+                navigate("/favorites");
+                handleNavigation();
+              }}
+            />
             <LanguageSwitcher size="md" />
             <button
               onClick={() => setMenuOpen(!menuOpen)}
@@ -136,13 +180,14 @@ export default function Navbar() {
         >
           <ul className="flex flex-col items-center gap-5 py-6 bg-accent-light rounded-xl mt-2 font-hacen font-semibold text-accent-dark text-xl">
             {navLinks.map((item) => (
-              <li key={item.id}>
-                <button
-                  onClick={() => scrollToSection(item.id)}
+              <li key={item.path}>
+                <Link
+                  to={item.path}
+                  onClick={handleNavigation}
                   className="text-accent-dark hover:text-primary transition-colors py-1"
                 >
                   {item.name}
-                </button>
+                </Link>
               </li>
             ))}
           </ul>

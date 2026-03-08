@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-export default function Footer() {
+export default function Footer({ className = "" }) {
   const { t, i18n } = useTranslation();
   const dir = i18n.language === "ar" ? "rtl" : "ltr";
 
@@ -45,9 +45,8 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-black text-white">
+    <footer className={`bg-black text-white ${className}`}>
       <div className="max-w-7xl mx-auto px-6 py-6 grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
-        {/* عن الشركة */}
         <div className="md:col-span-1">
           <h3 className="text-2xl font-semibold mb-2 text-white transition-colors">
             {t("footer.brand")}
@@ -77,7 +76,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* روابط سريعة */}
         <div>
           <h3 className="text-xl font-semibold mb-2 text-white transition-colors">
             {t("footer.quickLinks")}
@@ -98,7 +96,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* قيمنا / خدماتنا */}
         <div>
           <h3 className="text-xl font-semibold mb-2 text-white transition-colors">
             {t("values.title")}
@@ -111,19 +108,16 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* التواصل */}
         <div>
           <h3 className="text-xl font-semibold mb-2 text-white transition-colors">
             {t("contact.title.part1")}
           </h3>
           <div className="space-y-3 text-white text-base">
-            {/* العنوان */}
             <div className="flex justify-center md:justify-start items-start gap-1">
               <MapPin className="w-5 h-5 mt-0.5 shrink-0 text-white hover:text-primary transition-colors" />
               <span dir={dir}>{t("contact.info.address.value")}</span>
             </div>
 
-            {/* الهاتف */}
             <div className="flex flex-col items-center md:items-start gap-1">
               <a
                 href={`tel:${t("contact.info.phone.value1")}`}
@@ -132,16 +126,8 @@ export default function Footer() {
                 <Phone className="w-5 h-5 shrink-0 text-white hover:text-primary transition-colors" />
                 <span>{t("contact.info.phone.value1")}</span>
               </a>
-              <a
-                href={`tel:${t("contact.info.phone.value2")}`}
-                className="flex items-center gap-2 hover:text-primary transition-colors md:pl-7"
-              >
-                <Phone className="w-5 h-5 shrink-0 text-white hover:text-primary transition-colors md:hidden" />
-                <span>{t("contact.info.phone.value2")}</span>
-              </a>
             </div>
 
-            {/* الإيميل */}
             <a
               href={`mailto:${t("contact.info.email.value")}`}
               className="flex justify-center md:justify-start items-center gap-2 hover:text-primary transition-colors"
@@ -150,7 +136,6 @@ export default function Footer() {
               <span className="break-all">{t("contact.info.email.value")}</span>
             </a>
 
-            {/* ساعات العمل */}
             <div className="flex justify-center md:justify-start items-start gap-2">
               <Clock className="w-5 h-5 mt-0.5 shrink-0 text-white hover:text-primary transition-colors" />
               <div>
@@ -162,7 +147,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* نسخة الموبايل من السوشيال */}
+      {/*mobile social*/}
       <div className="block md:hidden text-center mt-4">
         <p className="font-medium text-white mb-2">
           {t("contact.social.title")}
